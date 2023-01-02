@@ -1,0 +1,34 @@
+.movieCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+    width: 200px;
+
+    border-style: solid;
+    margin: 10px 10px 10px 10px;
+}
+
+.imageFrame{
+
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+}
+
+.titleAndPub{
+    display: flex;
+    background-color: bisque;
+}
+
+.pubDate{
+    display: inline;
+    margin: 0 0 0 5px;
+}
+
+.deleteButton{
+
+}
