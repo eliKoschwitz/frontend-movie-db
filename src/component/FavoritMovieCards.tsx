@@ -12,6 +12,7 @@ function FavoritMovieCards () {
             setMovieList(response.data);
         })();
     }, []); //Ohne [] wäre es sofort....
+
     console.log(movieList);
     return(
         <div>
