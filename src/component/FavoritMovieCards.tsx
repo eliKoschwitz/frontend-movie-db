@@ -9,10 +9,9 @@ function FavoritMovieCards () {
     useEffect( () => {
         (async () => {
             const response = await axios.get("/api/movies");
-            console.log("hier in favMovieCards"+response.data)
-            setMovieList(response.data)
+            setMovieList(response.data);
         })();
-    }, []);
+    }, []); //Ohne [] wäre es sofort....
     console.log(movieList);
     return(
         <div>
