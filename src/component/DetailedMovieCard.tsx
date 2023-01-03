@@ -14,7 +14,6 @@ function DetailedMovieCard(){
 
     const objId = useParams<{id : string}>();
     const [movie, setMovie] = useState<Movie>(initialMovie);
-    console.log("huhu",objId);
 
     useEffect( () => {
         (async () => {

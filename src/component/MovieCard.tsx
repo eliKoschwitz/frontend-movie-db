@@ -12,7 +12,7 @@ function MovieCard(props:{movieCard : Movie, deleteById:Function, setFavoritById
         <div className="movieCard">
             <button className="deleteButton" onClick={deleteByIdButton}>Delete</button>
             <button onClick={setFavoritById}>Fav</button>
-            <Link to={"/detailedCard/"+props.movieCard.id}> Hier name </Link>
+            <Link to={"/detailedCard/"+props.movieCard.id}> details </Link>
             <div className="imageFrame">
                 <img className="image" src= {props.movieCard.url} />
             </div>

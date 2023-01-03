@@ -12,20 +12,12 @@ export type Movie = {
 }
 
 function HomePage() {
-
-    let initialMovieToSendInPut = {
-        id: "",
-        name: "",
-        url: "",
-        publicationDate: "",
-        favorit: false}
-
     const [movieList, setMovieList] = useState<Movie[]>([]);
     const [inputForFilter, setInputForFilter] = useState<string>("");
     const [inputForTitle, setInputForTitle] = useState<string>("");
     const [inputForUrl, setInputForUrl] = useState<string>("");
     const [inputForYear, setInputForYear] = useState<string>("");
-    const [movieToSendInPut, setMovieToSendInPut] = useState<Movie>(initialMovieToSendInPut);
+
 
     if(JSON.stringify(movieList) === JSON.stringify([])){
         const movieCard ={
@@ -87,15 +79,30 @@ function HomePage() {
     }
 
     // put
+    let initialMovieToSendInPut = {
+        id: "",
+        name: "",
+        url: "",
+        publicationDate: "",
+        favorit: false
+    }
 
     const setFavoritById = (id:string) => {
-        movieToSendInPut.favorit = !movieToSendInPut.favorit;
-        setMovieToSendInPut(movieToSendInPut);
-        console.log(movieToSendInPut.favorit);
+        /*
+        for ( let movie of movieList) {
+            if(movie.id === id){
+                initialMovieToSendInPut = movie;
+            }
+        }
+         */
+
+        movieList.forEach(movie => movie.id === id ? initialMovieToSendInPut = movie : console.log(""));
+        initialMovieToSendInPut.favorit = !initialMovieToSendInPut.favorit;
 
         (async () => {
-            const response = await axios.put("/api/movies/"+id, movieToSendInPut);
+            const response = await axios.put("/api/movies/"+id, initialMovieToSendInPut);
             const updateList = movieList.map(movie => movie.id === response.data.id ? response.data : movie);
+            console.log(updateList)
             setMovieList(updateList);
         })();
     }
