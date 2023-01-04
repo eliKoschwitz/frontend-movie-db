@@ -55,6 +55,7 @@ function HomePage() {
         const value = event.target.value;
         setInputForYear(value);
     }
+
     // post Add
     const movieToSendInPost = {
         id: "",
@@ -62,48 +63,10 @@ function HomePage() {
         url: inputForUrl,
         publicationDate:inputForYear
     }
-
     const addMovie = () => {
         (async () => {
             const response = await axios.post("/api/movies", movieToSendInPost);
             setMovieList(response.data);
-        })();
-    }
-
-    // delete
-    const deleteById = (id:string) => {
-        (async () => {
-            const response = await axios.delete("/api/movies/"+id);
-            setMovieList(response.data);
-        })();
-    }
-
-    // put
-    let initialMovieToSendInPut = {
-        id: "",
-        name: "",
-        url: "",
-        publicationDate: "",
-        favorit: false
-    }
-
-    const setFavoritById = (id:string) => {
-        /*
-        for ( let movie of movieList) {
-            if(movie.id === id){
-                initialMovieToSendInPut = movie;
-            }
-        }
-         */
-
-        movieList.forEach(movie => movie.id === id ? initialMovieToSendInPut = movie : console.log(""));
-        initialMovieToSendInPut.favorit = !initialMovieToSendInPut.favorit;
-
-        (async () => {
-            const response = await axios.put("/api/movies/"+id, initialMovieToSendInPut);
-            const updateList = movieList.map(movie => movie.id === response.data.id ? response.data : movie);
-            console.log(updateList)
-            setMovieList(updateList);
         })();
     }
 
@@ -114,7 +77,7 @@ function HomePage() {
                 <input className="inputForMovieSearch" onChange={getInput}/>
             </div>
             <div className="movieGallery">
-                <MovieCardList movieCardList = {movieList} inputForFilter = {inputForFilter} deleteById={deleteById} setFavoritById={setFavoritById}/>
+                <MovieCardList movieCardList = {movieList} inputForFilter = {inputForFilter}/>
             </div>
             <div className="addMovie">
                 <div className="titlesForMovieInput">

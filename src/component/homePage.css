@@ -55,10 +55,21 @@
     width: 100%;
     padding-top: 35px;
     padding-right: 60px;
+    height: 40px;
 }
 
-.buttonForAdd {
-    width: min-content;
-    height: min-content;
-    font-size: 25px;
+.buttonForAdd{
+    all: unset;
+    border-radius: 4px;
+    background-color: black;
+    color: white;
+    transition: all 30ms;
+    width: 50px;
+    text-align: center;
+}
+
+.buttonForAdd:hover{
+
+    cursor: pointer;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.32);
 }

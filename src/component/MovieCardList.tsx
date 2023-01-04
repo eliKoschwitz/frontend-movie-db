@@ -3,7 +3,7 @@ import {Movie} from "./HomePage";
 import MovieCard from "./MovieCard";
 import "./movieCardList.css"
 
-function MovieCardList(props:{ movieCardList : Movie[], inputForFilter : string, deleteById:Function, setFavoritById:Function}) {
+function MovieCardList(props:{movieCardList : Movie[], inputForFilter : string}) {
     let movieCardListFilter: Movie[];
 
     if(props.inputForFilter !== ""){
@@ -14,13 +14,9 @@ function MovieCardList(props:{ movieCardList : Movie[], inputForFilter : string,
         movieCardListFilter = props.movieCardList.map(movie => movie);
     }
 
-    const deleteByIdButton = (id: string) => props.deleteById(id);
-    const setFavoritById = (id: string) => props.setFavoritById(id);
-
-
     return (
         <div className="movieCardList">
-            {movieCardListFilter.map(movieCard => <MovieCard key={movieCard.id} movieCard = {movieCard} deleteById ={deleteByIdButton} setFavoritById ={setFavoritById}/> )}
+            {movieCardListFilter.map(movieCard => <MovieCard key={movieCard.id} movieCard = {movieCard}/> )}
         </div>
     );
 }

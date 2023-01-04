@@ -3,15 +3,56 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
     width: 200px;
-
     border-style: solid;
+    border-color: grey;
+    border-width: thin;
+    border-radius: 3px;
     margin: 10px 10px 10px 10px;
 }
 
 .imageFrame{
 
+}
+
+
+.logo {
+    display: flex;
+    text-indent: -9999px;
+    width: 200px;
+    height: 298px;
+
+}
+
+.linkOverlay{
+    border-radius: 10px;
+    z-index: 1;
+    position: absolute;
+}
+
+@media(min-width: 800px) {
+
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 7px 0 7px 0;
+}
+
+.button{
+    all: unset;
+    border-radius: 4px;
+    padding: 2px 5px;
+    background-color: black;
+    color: white;
+    transition: all 30ms;
+}
+
+.button:hover{
+    cursor: pointer;
+    box-shadow: 3px 3px 5px 0px rgba(0,0,0,0.32);
 }
 
 .image{
@@ -21,7 +62,9 @@
 
 .titleAndPub{
     display: flex;
-    background-color: bisque;
+    justify-content: center;
+    width: 100%;
+    margin: 5px 0 5px 0;
 }
 
 .pubDate{

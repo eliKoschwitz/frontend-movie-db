@@ -1,7 +1,7 @@
 import {Movie} from "./HomePage";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
-import FavoritMovieCard from "./FavoritMovieCard";
+import MovieCard from "./MovieCard";
 
 function FavoritMovieCards () {
     const [movieList, setMovieList] = useState<Movie[]>([]);
@@ -11,12 +11,12 @@ function FavoritMovieCards () {
             const response = await axios.get("/api/movies");
             setMovieList(response.data);
         })();
-    }, []); //Ohne [] wäre es sofort....
+    }, []);
 
     console.log(movieList);
     return(
         <div>
-            {movieList.filter(favMovie => favMovie.favorit === true).map(favMovies => <FavoritMovieCard favMovie={favMovies} />)}
+            {movieList.filter(favMovie => favMovie.favorit === true).map(favMovie => <MovieCard key={favMovie.id} movieCard = {favMovie}/> )}
         </div>
     )
 
